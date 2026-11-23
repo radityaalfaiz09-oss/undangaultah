@@ -1,16 +1,13 @@
-/* =========================================================
-   KONFIGURASI — ubah semua data acara di sini saja
-   ========================================================= */
 const CONFIG = {
   judulAcara: "Sweet Seventeen",
   umur: "17",
   namaTokoh: "Nama Kamu",
-  tanggalAcara: "2026-12-20T16:00:00+07:00", // format ISO, WIB
+  tanggalAcara: "2026-12-20T16:00:00+07:00",
   durasiJam: 4,
   tempat: "Nama Tempat Acara",
   alamat: "Jl. Contoh No. 1, Jakarta",
-  mapsLink: "https://www.google.com/maps/search/?api=1&query=Monas+Jakarta",
-  mapsEmbed: "https://www.google.com/maps?q=Monas+Jakarta&output=embed",
+  mapsLink: "https://maps.app.goo.gl/B6wFDgmtAkaKdPq18",
+  mapsEmbed: "https://maps.app.goo.gl/B6wFDgmtAkaKdPq18",
   rekening: [
     { label: "Transfer Bank BCA", nilai: "1234567890", keterangan: "a.n. Nama Kamu" },
     { label: "Alamat Kado", nilai: "Jl. Contoh No. 1, Jakarta", keterangan: "Penerima: Nama Kamu" },
@@ -18,13 +15,9 @@ const CONFIG = {
   storageKey: "ucapan-ultah-v1",
 };
 
-/* ---------- Helper ---------- */
 const $ = (sel) => document.querySelector(sel);
 const eventDate = new Date(CONFIG.tanggalAcara);
 
-/* =========================================================
-   1. ISI DATA OTOMATIS KE HTML (data-bind)
-   ========================================================= */
 function fillStaticData() {
   document.querySelectorAll("[data-bind]").forEach((el) => {
     el.textContent = CONFIG[el.dataset.bind] ?? "";

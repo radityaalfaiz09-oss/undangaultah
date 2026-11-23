@@ -1,9 +1,9 @@
 :root {
   --cream: #FFF7ED;
-  --coral: #FF6B6B;   /* aksen utama */
-  --sun:   #F4B942;   /* kuning emas */
-  --berry: #B83B5E;   /* judul & teks penting */
-  --ink:   #3D2C2E;
+  --coral: #2c06ff;   /* aksen utama */
+  --sun:   #6f6f6f;   /* kuning emas */
+  --berry: #060606;   /* judul & teks penting */
+  --ink:   #043847;
 
   --font-display: "Fraunces", serif;
   --font-body: "Plus Jakarta Sans", sans-serif;
@@ -25,9 +25,6 @@ body.locked { overflow: hidden; }          /* kunci scroll selama cover tampil *
 h1, h2, h3, h4, p { margin: 0; }
 .hidden { display: none !important; }
 
-/* =========================================================
-   COVER
-   ========================================================= */
 .cover {
   position: fixed;
   inset: 0;
@@ -89,7 +86,6 @@ h1, h2, h3, h4, p { margin: 0; }
   .cover-name { font-size: 60px; }
 }
 
-/* ===== Balon cover ===== */
 .balloon {
   position: absolute;
   width: 56px;
@@ -104,12 +100,8 @@ h1, h2, h3, h4, p { margin: 0; }
   50%      { transform: translateY(-18px) rotate(3deg); }
 }
 
-/* =========================================================
-   KONTEN UTAMA
-   ========================================================= */
 .main { max-width: 576px; margin: 0 auto; overflow-x: hidden; }
 
-/* ===== Hero & info acara ===== */
 .hero { padding: 64px 24px 48px; text-align: center; }
 .eyebrow {
   font-size: 14px; font-weight: 600;
