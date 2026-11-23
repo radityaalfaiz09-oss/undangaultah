@@ -1,16 +1,16 @@
 const CONFIG = {
   judulAcara: "Sweet Seventeen",
   umur: "17",
-  namaTokoh: "Nama Kamu",
+  namaTokoh: "Raditya Al-Faiz",
   tanggalAcara: "2026-12-20T16:00:00+07:00",
   durasiJam: 4,
-  tempat: "Nama Tempat Acara",
-  alamat: "Jl. Contoh No. 1, Jakarta",
+  tempat: "Smkn 6 Tangsel",
+  alamat: "Jl.Magnolia VI No.6",
   mapsLink: "https://maps.app.goo.gl/B6wFDgmtAkaKdPq18",
   mapsEmbed: "https://www.google.com/maps?q=-6.2633241,106.6660765&output=embed",
   rekening: [
-    { label: "Transfer Bank BCA", nilai: "1234567890", keterangan: "a.n. Nama Kamu" },
-    { label: "Alamat Kado", nilai: "Jl. Contoh No. 1, Jakarta", keterangan: "Penerima: Nama Kamu" },
+    { label: "Transfer Bank BCA", nilai: "1234567890", keterangan: "a.n. Raditya Al-Faiz" },
+    { label: "Alamat Kado", nilai: "Jl. Magnolia VI No.6", keterangan: "Penerima: Raditya Al-Faiz" },
   ],
   storageKey: "ucapan-ultah-v1",
 };
