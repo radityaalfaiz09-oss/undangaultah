@@ -1,16 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan ulang tahun</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Ulang Tahun</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-   <p>Kepada.Yth</p> 
-   <h2>Tamu undangan</h2>
+
+<body class="locked">
+  <section id="cover" class="cover">
+    <svg class="balloon b1" viewBox="0 0 60 100" aria-hidden="true">
+      <ellipse cx="30" cy="34" rx="24" ry="30" fill="#F4B942" />
+      <path d="M30 64 L25 72 L35 72 Z" fill="#F4B942" />
+      <path d="M30 72 C 20 85, 40 90, 30 100" stroke="#FFF7ED" stroke-width="1.5" fill="none" />
+      <ellipse cx="21" cy="22" rx="6" ry="9" fill="#fff" opacity=".35" />
+    </svg>
+    <svg class="balloon b2" viewBox="0 0 60 100" aria-hidden="true">
+      <ellipse cx="30" cy="34" rx="24" ry="30" fill="#7ED6C4" />
+      <path d="M30 64 L25 72 L35 72 Z" fill="#7ED6C4" />
+      <path d="M30 72 C 20 85, 40 90, 30 100" stroke="#FFF7ED" stroke-width="1.5" fill="none" />
+      <ellipse cx="21" cy="22" rx="6" ry="9" fill="#fff" opacity=".35" />
+    </svg>
+    <svg class="balloon b3" viewBox="0 0 60 100" aria-hidden="true">
+      <ellipse cx="30" cy="34" rx="24" ry="30" fill="#FFF7ED" />
+      <path d="M30 64 L25 72 L35 72 Z" fill="#FFF7ED" />
+      <path d="M30 72 C 20 85, 40 90, 30 100" stroke="#FFF7ED" stroke-width="1.5" fill="none" />
+      <ellipse cx="21" cy="22" rx="6" ry="9" fill="#fff" opacity=".6" />
+    </svg>
+
+    <p class="cover-top">Kamu Telah Diundang</p>
+
+    <div class="cover-center">
+      <p class="cover-intro">Perayaan Ulang Tahun ke-<span data-bind="umur"></span></p>
+      <h1 class="cover-name" data-bind="namaTokoh"></h1>
+      <p class="cover-subtitle" data-bind="judulAcara"></p>
+    </div>
+
+    <div class="cover-bottom">
+      <p class="cover-to">Kepada Yth.</p>
+      <p id="guestName" class="guest-name">Tamu Undangan</p>
+      <button id="btnOpen" class="btn-open">Buka Undangan</button>
+    </div>
+  </section>
+  <main class="main">
+    <section class="hero">
+      <div class="reveal">
+        <p class="eyebrow">Happy Birthday</p>
+        <h2 class="hero-name" data-bind="namaTokoh"></h2>
+        <p class="hero-text">
+          Dengan penuh syukur, kami mengundang kamu untuk hadir dan merayakan hari spesial ini bersama kami.
+        </p>
+      </div>
+      <div class="reveal info-card">
+        <p class="label">Hari &amp; Tanggal</p>
+        <p id="tglText" class="date-text"></p>
+        <p id="jamText" class="time-text"></p>
+        <div class="divider"></div>
+        <p class="label">Lokasi</p>
+        <p class="place-name" data-bind="tempat"></p>
+        <p class="place-address" data-bind="alamat"></p>
+      </div>
+      <div class="reveal countdown-wrap">
+        <p class="label">Menuju Hari H</p>
+        <div id="countdown" class="countdown-grid">
+          <div class="cd-box"><span id="cdDays">00</span><small>Hari</small></div>
+          <div class="cd-box"><span id="cdHours">00</span><small>Jam</small></div>
+          <div class="cd-box"><span id="cdMinutes">00</span><small>Menit</small></div>
+          <div class="cd-box"><span id="cdSeconds">00</span><small>Detik</small></div>
+        </div>
+        <p id="cdDone" class="cd-done hidden">Hari ini adalah harinya! 🎂</p>
+
+        <div class="actions">
+          <a id="btnGCal" target="_blank" rel="noopener" class="btn-outline">📅Google Calendar</a>
+          <button id="btnICS" class="btn-outline">📥unduh.ics</button>
+        </div>
+      </div>
+    </section>
+    <section class="section section-white">
+      <h3 class="reveal section-title">Lokasi Acara</h3>
+      <div class="reveal map-box">
+        <iframe id="mapFrame" title="Peta lokasi acara" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <a id="btnMaps" target="_blank" rel="noopener" class="reveal btn-solid btn-maps">📍 Petunjuk Arah</a>
+    </section>
+    <section class="section">
+      <h3 class="reveal section-title">Amplop Digital</h3>
+      <p class="reveal section-text">
+        Kehadiranmu sudah jadi kado terbaik. Tapi kalau mau berbagi, bisa lewat sini ya.
+      </p>
+      <div id="giftList" class="gift-list"></div>
+    </section>
+    <section class="section section-white">
+      <h3 class="reveal section-title">Galeri Momen</h3>
+      <div class="gallery-grid">
+        <figure class="gallery-item reveal from-left tall"><img src="foto1.jpg" alt="Foto 1" loading="lazy" onerror="this.style.display='none'" /></figure>
+        <figure class="gallery-item reveal from-right square"><img src="foto2.jpg" alt="Foto 2" loading="lazy" onerror="this.style.display='none'" /></figure>
+        <figure class="gallery-item reveal from-left square"><img src="foto3.jpg" alt="Foto 3" loading="lazy" onerror="this.style.display='none'" /></figure>
+        <figure class="gallery-item reveal from-right tall"><img src="foto4.jpg" alt="Foto 4" loading="lazy" onerror="this.style.display='none'" /></figure>
+      </div>
+    </section>
+    <section class="section">
+      <h3 class="reveal section-title">Konfirmasi &amp; Ucapan</h3>
+
+      <form id="rsvpForm" class="reveal form-card" novalidate>
+        <div class="field">
+          <label for="inNama">Nama</label>
+          <input id="inNama" type="text" maxlength="40" required placeholder="Nama kamu" />
+        </div>
+        <div class="field">
+          <label for="inStatus">Kehadiran</label>
+          <select id="inStatus" required>
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak Hadir">Tidak Hadir</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="inUcapan">Ucapan &amp; Doa</label>
+          <textarea id="inUcapan" rows="3" maxlength="300" required placeholder="Tulis ucapanmu..."></textarea>
+        </div>
+        <p id="formError" class="form-error hidden"></p>
+        <button type="submit" class="btn-solid btn-block">Kirim Ucapan</button>
+      </form>
+
+      <div class="guestbook-wrap">
+        <h4 class="guestbook-title">Buku Tamu (<span id="guestCount">0</span>)</h4>
+        <ul id="guestbook" class="guestbook"></ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Dibuat dengan❤️‍🔥 — <span data-bind="namaTokoh"></span> © 2026
+    </footer>
+  </main>
+  <button id="musicToggle" class="music-btn hidden" aria-label="Putar atau jeda musik">
+    <span id="musicIcon">🎵</span>
+  </button>
+  <audio id="bgm" loop preload="auto">
+    <source src="musik.mp3" type="audio/mpeg" />
+  </audio>
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
